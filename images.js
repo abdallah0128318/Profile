@@ -12,8 +12,8 @@
  */
 
 const images = [
-  { src: "images/student1.jpg",  name: "Ahmed Mohamed" },
-  { src: "images/student2.jpg",  name: "Fatma Ali" },
+  { src: "images/abdallah_sayed.jpeg",  name: "Abdallah Ahmed"},
+  { src: "images/mocca.jpeg",  name: "Mocca" },
   { src: "images/student3.jpg",  name: "Omar Hassan" },
   { src: "images/student4.jpg",  name: "Nour Ibrahim" },
   { src: "images/student5.jpg",  name: "Youssef Khaled" },

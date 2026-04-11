@@ -13,10 +13,10 @@
 
 const images = [
   { src: "images/abdallah_sayed.jpeg",  name: "Abdallah Ahmed"},
+  { src: "images/Anas_Hesham.jpeg",  name: "Annooos" },
   { src: "images/mocca.jpeg",  name: "Mocca" },
   { src: "images/Mohamed_Ehab.jpeg",  name: "Mohamed Ehab" },
   { src: "images/Eman_Khaled.jpeg",  name: "Eman_Khaled" },
-  { src: "images/student5.jpg",  name: "Youssef Khaled" },
   { src: "images/student6.jpg",  name: "Sara Mahmoud" },
   { src: "images/student7.jpg",  name: "Kareem Tarek" },
   { src: "images/student8.jpg",  name: "Layla Samir" },

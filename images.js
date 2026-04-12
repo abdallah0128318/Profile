@@ -17,7 +17,7 @@ const images = [
   { src: "images/Anas_Hesham.jpeg",  name: "Annooos" },
   { src: "images/Mohamed_Ehab.jpeg",  name: "Mohamed Ehab" },
   { src: "images/mocca.jpeg",  name: "Mocca" },
-  { src: "images/Eman_Khaled.jpeg",  name: "Eman_Khaled" },
+  { src: "images/Eman_Khaled.jpeg",  name: "Eman Khaled" },
   { src: "images/rana_ramadan.jpeg",  name: "Rana Ramadan"},
   { src: "images/student8.jpg",  name: "Layla Samir" },
   { src: "images/student9.jpg",  name: "Ziad Wael" },

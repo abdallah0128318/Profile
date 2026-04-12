@@ -13,15 +13,13 @@
 
 const images = [
   { src: "images/abdallah_sayed.jpeg",  name: "Abdallah Ahmed"},
+  { src: "images/adham_mohamed.jpeg",  name: "Adham Mohamed" },
   { src: "images/Anas_Hesham.jpeg",  name: "Annooos" },
-  { src: "images/mocca.jpeg",  name: "Mocca" },
   { src: "images/Mohamed_Ehab.jpeg",  name: "Mohamed Ehab" },
+  { src: "images/mocca.jpeg",  name: "Mocca" },
   { src: "images/Eman_Khaled.jpeg",  name: "Eman_Khaled" },
-  { src: "images/student6.jpg",  name: "Sara Mahmoud" },
-  { src: "images/student7.jpg",  name: "Kareem Tarek" },
+  { src: "images/rana_ramadan.jpeg",  name: "Rana Ramadan"},
   { src: "images/student8.jpg",  name: "Layla Samir" },
   { src: "images/student9.jpg",  name: "Ziad Wael" },
   { src: "images/student10.jpg", name: "Hana Ramadan" },
-  { src: "images/student11.jpg", name: "Mariam Adel" },
-  { src: "images/student12.jpg", name: "Tamer Hussein" }
 ];

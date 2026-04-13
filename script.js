@@ -109,7 +109,51 @@ function renderGallery() {
 renderGallery();
 
 
-/* ---- 4. ACTIVE NAV LINK (Scroll Spy) ---- */
+/* ---- 4. REVIEWS: Dynamic Rendering ---- */
+function renderReviews() {
+  const grid = document.getElementById('reviews-grid');
+  if (!grid) return;
+
+  // Guard: reviews array must exist (defined in reviews.js)
+  if (typeof reviews === 'undefined' || !Array.isArray(reviews)) {
+    grid.innerHTML = '<p class="reviews-empty">Reviews coming soon.</p>';
+    return;
+  }
+
+  if (reviews.length === 0) {
+    grid.innerHTML = '<p class="reviews-empty">No reviews added yet. Edit reviews.js to populate this section.</p>';
+    return;
+  }
+
+  reviews.forEach((src, index) => {
+    const item = document.createElement('div');
+    item.className = 'review-item reveal';
+    item.style.animationDelay = `${index * 0.07}s`;
+
+    // Image wrapper
+    const wrap = document.createElement('div');
+    wrap.className = 'review-img-wrap';
+
+    const img = document.createElement('img');
+    img.alt = `Student Review ${index + 1}`;
+    img.loading = 'lazy';
+
+    // Graceful fallback if image doesn't exist
+    img.onerror = () => {
+      wrap.innerHTML = `<div class="review-img-placeholder">⭐</div>`;
+    };
+
+    img.src = src;
+    wrap.appendChild(img);
+    item.appendChild(wrap);
+    grid.appendChild(item);
+
+    // Observe for scroll reveal animation
+    revealObserver.observe(item);
+  });
+}
+
+renderReviews();
 const sections = document.querySelectorAll('section[id]');
 
 const spyObserver = new IntersectionObserver((entries) => {

@@ -23,4 +23,9 @@ const reviews = [
   "reviews/9.jpeg",
   "reviews/10.jpeg",
   "reviews/11.jpeg",
+  "reviews/16.png",
+  "reviews/17.png",
+  "reviews/18.png",
+  "reviews/19.png",
+  "reviews/20.png",
 ];

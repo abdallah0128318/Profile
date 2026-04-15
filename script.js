@@ -1,6 +1,43 @@
+/* script.js */
+
 /* ============================================================
-   script.js — Abdallah Qapeel Taha Portfolio
+   Abdallah Qapeel Taha Portfolio — script.js
+   Features:
+     1. Sticky navbar + hamburger menu          (original)
+     2. Scroll reveal (IntersectionObserver)    (original)
+     3. renderGallery()                         (original)
+     4. renderReviews()                         (original)
+     5. Scroll spy (active nav link)            (original)
+     6. Smooth scroll for anchor links          (original)
+     NEW ↓
+     7. renderFeaturedReviews()                 (NEW)
+     8. Language toggle AR / EN                 (NEW)
    ============================================================ */
+
+
+/* ================================================================
+   NEW — Featured Reviews Data
+   Change these 3 paths to whichever review images look best.
+   ================================================================ */
+const featuredReviews = [
+  "reviews/1.jpeg",
+  "reviews/2.jpeg",
+  "reviews/3.jpeg",
+  "reviews/4.jpeg",
+  "reviews/5.jpeg",
+  "reviews/6.jpeg",
+  "reviews/7.jpeg",
+  "reviews/8.jpeg",
+  "reviews/9.jpeg",
+  "reviews/10.jpeg",
+  "reviews/11.jpeg",
+  "reviews/16.png",
+  "reviews/17.png",
+  "reviews/18.png",
+  "reviews/19.png",
+  "reviews/20.png",
+];
+
 
 /* ---- 1. NAVBAR: Scroll + Hamburger ---- */
 const navbar    = document.getElementById('navbar');
@@ -44,7 +81,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);  // animate once
+      revealObserver.unobserve(entry.target);
     }
   });
 }, {
@@ -60,7 +97,6 @@ function renderGallery() {
   const grid = document.getElementById('gallery-grid');
   if (!grid) return;
 
-  // Guard: images array must exist (defined in images.js)
   if (typeof images === 'undefined' || !Array.isArray(images)) {
     grid.innerHTML = '<p class="gallery-empty">Gallery coming soon.</p>';
     return;
@@ -76,23 +112,18 @@ function renderGallery() {
     item.className = 'gallery-item reveal';
     item.style.animationDelay = `${index * 0.07}s`;
 
-    // Image wrapper
     const wrap = document.createElement('div');
     wrap.className = 'gallery-img-wrap';
 
     const img = document.createElement('img');
     img.alt = student.name;
     img.loading = 'lazy';
-
-    // Graceful fallback if image doesn't exist
     img.onerror = () => {
       wrap.innerHTML = `<div class="gallery-img-placeholder">🎓</div>`;
     };
-
     img.src = student.src;
     wrap.appendChild(img);
 
-    // Name label
     const nameEl = document.createElement('div');
     nameEl.className = 'gallery-name';
     nameEl.textContent = student.name;
@@ -101,7 +132,6 @@ function renderGallery() {
     item.appendChild(nameEl);
     grid.appendChild(item);
 
-    // Re-observe newly created elements for reveal animation
     revealObserver.observe(item);
   });
 }
@@ -114,7 +144,6 @@ function renderReviews() {
   const grid = document.getElementById('reviews-grid');
   if (!grid) return;
 
-  // Guard: reviews array must exist (defined in reviews.js)
   if (typeof reviews === 'undefined' || !Array.isArray(reviews)) {
     grid.innerHTML = '<p class="reviews-empty">Reviews coming soon.</p>';
     return;
@@ -130,30 +159,28 @@ function renderReviews() {
     item.className = 'review-item reveal';
     item.style.animationDelay = `${index * 0.07}s`;
 
-    // Image wrapper
     const wrap = document.createElement('div');
     wrap.className = 'review-img-wrap';
 
     const img = document.createElement('img');
     img.alt = `Student Review ${index + 1}`;
     img.loading = 'lazy';
-
-    // Graceful fallback if image doesn't exist
     img.onerror = () => {
       wrap.innerHTML = `<div class="review-img-placeholder">⭐</div>`;
     };
-
     img.src = src;
     wrap.appendChild(img);
     item.appendChild(wrap);
     grid.appendChild(item);
 
-    // Observe for scroll reveal animation
     revealObserver.observe(item);
   });
 }
 
 renderReviews();
+
+
+/* ---- 5. SCROLL SPY ---- */
 const sections = document.querySelectorAll('section[id]');
 
 const spyObserver = new IntersectionObserver((entries) => {
@@ -176,7 +203,7 @@ const spyObserver = new IntersectionObserver((entries) => {
 sections.forEach(s => spyObserver.observe(s));
 
 
-/* ---- 5. SMOOTH SCROLL for all anchor links ---- */
+/* ---- 6. SMOOTH SCROLL ---- */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -187,3 +214,101 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
+
+
+/* ================================================================
+   NEW — 7. RENDER FEATURED REVIEWS
+   Picks the top 3 from featuredReviews[] and injects them
+   into #featured-reviews-grid with card UI + scroll reveal.
+   ================================================================ */
+function renderFeaturedReviews() {
+  const grid = document.getElementById('featured-reviews-grid');
+  if (!grid) return;
+
+  if (!Array.isArray(featuredReviews) || featuredReviews.length === 0) return;
+
+  featuredReviews.forEach((src, index) => {
+    const card = document.createElement('div');
+    card.className = 'fr-card reveal';
+    card.style.transitionDelay = `${index * 0.12}s`;
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Featured Review ${index + 1}`;
+    img.loading = 'lazy';
+    img.onerror = () => {
+      card.innerHTML = `<div class="fr-placeholder">⭐<br>Review ${index + 1}</div>`;
+    };
+
+    card.appendChild(img);
+    grid.appendChild(card);
+
+    revealObserver.observe(card);
+  });
+}
+
+renderFeaturedReviews();
+
+
+/* ================================================================
+   NEW — 8. LANGUAGE TOGGLE (AR / EN)
+   - Button in navbar shows current opposite language
+   - Translates all [data-en] / [data-ar] elements
+   - Applies RTL direction + .arabic class on <body>
+   - Persists choice in localStorage
+   ================================================================ */
+(function initLangToggle() {
+  const langToggle = document.getElementById('langToggle');
+  const langLabel  = document.getElementById('langLabel');
+  if (!langToggle || !langLabel) return;
+
+  // Read saved preference, default to English
+  let currentLang = localStorage.getItem('aqt-lang') || 'en';
+
+  function applyLanguage(lang) {
+    const isAr = lang === 'ar';
+
+    // Set HTML attributes
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+
+    // Toggle body class for RTL CSS rules
+    document.body.classList.toggle('arabic', isAr);
+
+    // Update button label (shows the OTHER language)
+    langLabel.textContent = isAr ? 'EN' : 'AR';
+
+    // Translate every element that has data-en / data-ar
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = isAr
+        ? (el.getAttribute('data-ar') || el.getAttribute('data-en'))
+        : el.getAttribute('data-en');
+
+      // Only update textContent — never touch href, src, id, class
+      if (text) el.textContent = text;
+    });
+
+    // Special case: hero-title has <br> — handle innerHTML carefully
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+      if (isAr) {
+        heroTitle.innerHTML = 'مدرّس رياضيات &nbsp;|&nbsp; من الأساسي حتى الثانوية العامة<br />مبرمج سابق';
+      } else {
+        heroTitle.innerHTML = 'Math Teacher &nbsp;|&nbsp; Foundation to Thanaweya Amma<br />Ex-Programmer';
+      }
+    }
+
+    // Persist
+    localStorage.setItem('aqt-lang', lang);
+    currentLang = lang;
+  }
+
+  // Apply saved language on load
+  applyLanguage(currentLang);
+
+  // Toggle on click
+  langToggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent outside-click handler from firing
+    applyLanguage(currentLang === 'en' ? 'ar' : 'en');
+  });
+})();

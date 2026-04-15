@@ -1,5 +1,6 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,17 +25,24 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#hero" class="nav-logo">AQT</a>
+
+      <!-- NEW: Language Toggle -->
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span class="lang-globe">🌐</span>
+        <span class="lang-label" id="langLabel">AR</span>
+      </button>
+
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#levels" class="nav-link">Levels</a></li>
-        <li><a href="#style" class="nav-link">Teaching Style</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#reviews" class="nav-link">Reviews</a></li>
-        <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+        <li><a href="#about"      class="nav-link" data-en="About"          data-ar="عني">About</a></li>
+        <li><a href="#levels"     class="nav-link" data-en="Levels"         data-ar="المراحل">Levels</a></li>
+        <li><a href="#style"      class="nav-link" data-en="Teaching Style" data-ar="أسلوب التدريس">Teaching Style</a></li>
+        <li><a href="#experience" class="nav-link" data-en="Experience"     data-ar="الخبرة">Experience</a></li>
+        <li><a href="#gallery"    class="nav-link" data-en="Gallery"        data-ar="المعرض">Gallery</a></li>
+        <li><a href="#reviews"    class="nav-link" data-en="Reviews"        data-ar="التقييمات">Reviews</a></li>
+        <li><a href="#contact"    class="nav-link nav-cta" data-en="Contact" data-ar="تواصل">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -48,12 +56,14 @@
     </div>
     <div class="hero-content">
       <div class="hero-text">
-        <span class="hero-tag reveal">Math Educator</span>
+        <span class="hero-tag reveal" data-en="Math Educator" data-ar="معلم رياضيات">Math Educator</span>
         <h1 class="hero-name reveal delay-1">Abdallah<br /><em>Qapeel Taha</em></h1>
-        <p class="hero-title reveal delay-2">Math Teacher &nbsp;|&nbsp; Foundation to Thanaweya Amma<br />Ex-Programmer</p>
+        <p class="hero-title reveal delay-2" data-en="Math Teacher | Foundation to Thanaweya Amma | Ex-Programmer" data-ar="مدرّس رياضيات | من الأساسي حتى الثانوية العامة | مبرمج سابق">
+          Math Teacher &nbsp;|&nbsp; Foundation to Thanaweya Amma<br />Ex-Programmer
+        </p>
         <div class="hero-btns reveal delay-3">
-          <a href="#contact" class="btn btn-primary">Contact Me</a>
-          <a href="#gallery" class="btn btn-outline">View Students Gallery</a>
+          <a href="#contact" class="btn btn-primary" data-en="Contact Me"            data-ar="تواصل معي">Contact Me</a>
+          <a href="#gallery" class="btn btn-outline" data-en="View Students Gallery" data-ar="معرض الطلاب">View Students Gallery</a>
         </div>
       </div>
       <div class="hero-image reveal delay-2">
@@ -71,56 +81,85 @@
             </svg>
             <span>Photo</span>
           </div>
-          <div class="profile-badge">
-            <span>✦</span> Math Expert
-          </div>
         </div>
       </div>
     </div>
     <a href="#about" class="scroll-hint">
-      <span>Scroll</span>
+      <span data-en="Scroll" data-ar="تمرير">Scroll</span>
       <div class="scroll-arrow"></div>
     </a>
+  </section>
+
+  <!-- ===== NEW: FEATURED REVIEWS — directly below Hero ===== -->
+  <section class="section featured-reviews-section" id="featured-reviews">
+    <div class="container">
+      <div class="section-label reveal" data-en="Top Feedback" data-ar="أبرز التقييمات">Top Feedback</div>
+      <h2 class="section-title centered reveal delay-1"
+          data-en="What Students &amp; Parents Say"
+          data-ar="ماذا يقول الطلاب وأولياء الأمور">What Students &amp; Parents Say</h2>
+      <p class="section-subtitle reveal delay-2"
+         data-en="Real feedback from our learning community"
+         data-ar="تقييمات حقيقية من مجتمعنا التعليمي">Real feedback from our learning community</p>
+      <div class="featured-reviews-grid" id="featured-reviews-grid">
+        <!-- Dynamically populated by script.js -->
+      </div>
+    </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
   <section class="section about-section" id="about">
     <div class="container">
-      <div class="section-label reveal">About Me</div>
+      <div class="section-label reveal" data-en="About Me" data-ar="عني">About Me</div>
       <div class="about-grid">
         <div class="about-text reveal delay-1">
-          <h2 class="section-title">From Code to Classroom —<br /><em>Logic Never Changes</em></h2>
-          <p>My journey began in software engineering, where I spent years solving complex problems through structured, logical thinking. That foundation became my greatest teaching asset when I transitioned into mathematics education.</p>
-          <p>I believe that mathematics is not a subject to be memorized — it is a language to be understood. My programming background allows me to break down any concept into clear, logical steps that students genuinely grasp, not just repeat.</p>
-          <p>From foundational arithmetic to the demands of Thanaweya Amma, I meet every student where they are and guide them toward deep, confident understanding — building problem-solvers, not just exam-passers.</p>
+          <h2 class="section-title">
+            <span data-en="From Code to Classroom —" data-ar="من البرمجة إلى الفصل الدراسي —">From Code to Classroom —</span><br />
+            <em data-en="Logic Never Changes" data-ar="المنطق لا يتغير">Logic Never Changes</em>
+          </h2>
+          <p data-en="My journey began in software engineering, where I spent years solving complex problems through structured, logical thinking. That foundation became my greatest teaching asset when I transitioned into mathematics education."
+             data-ar="بدأت رحلتي في هندسة البرمجيات، حيث أمضيت سنوات في حل المسائل المعقدة بتفكير منطقي منظّم. أصبح ذلك أقوى أسلحتي حين انتقلت إلى تعليم الرياضيات.">
+            My journey began in software engineering, where I spent years solving complex problems through structured, logical thinking. That foundation became my greatest teaching asset when I transitioned into mathematics education.
+          </p>
+          <p data-en="I believe that mathematics is not a subject to be memorized — it is a language to be understood. My programming background allows me to break down any concept into clear, logical steps that students genuinely grasp, not just repeat."
+             data-ar="أؤمن أن الرياضيات ليست مادة تُحفظ، بل لغة تُفهم. خلفيتي البرمجية تمكّنني من تفكيك أي مفهوم إلى خطوات منطقية واضحة يفهمها الطالب حقاً، لا يرددها فحسب.">
+            I believe that mathematics is not a subject to be memorized — it is a language to be understood. My programming background allows me to break down any concept into clear, logical steps that students genuinely grasp, not just repeat.
+          </p>
+          <p data-en="From foundational arithmetic to the demands of Thanaweya Amma, I meet every student where they are and guide them toward deep, confident understanding — building problem-solvers, not just exam-passers."
+             data-ar="من الحساب الأساسي وحتى متطلبات الثانوية العامة، أنطلق من مستوى كل طالب وأقوده نحو فهم عميق وثقة حقيقية — لأُخرّج حلّاي مشكلات، لا متعلّمي امتحانات.">
+            From foundational arithmetic to the demands of Thanaweya Amma, I meet every student where they are and guide them toward deep, confident understanding — building problem-solvers, not just exam-passers.
+          </p>
         </div>
         <div class="about-highlights reveal delay-2">
           <div class="highlight-card">
             <div class="highlight-icon">🧠</div>
             <div>
-              <h4>Logical Thinking</h4>
-              <p>Engineering background fuels a structured, analytical teaching approach</p>
+              <h4 data-en="Logical Thinking" data-ar="التفكير المنطقي">Logical Thinking</h4>
+              <p data-en="Engineering background fuels a structured, analytical teaching approach"
+                 data-ar="خلفية هندسية تُغذّي أسلوباً تعليمياً منظّماً وتحليلياً">Engineering background fuels a structured, analytical teaching approach</p>
             </div>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon">🎯</div>
             <div>
-              <h4>Deep Understanding</h4>
-              <p>Concepts are explained from their roots, not through shortcuts</p>
+              <h4 data-en="Deep Understanding" data-ar="الفهم العميق">Deep Understanding</h4>
+              <p data-en="Concepts are explained from their roots, not through shortcuts"
+                 data-ar="المفاهيم تُشرح من جذورها، لا بالاختصارات">Concepts are explained from their roots, not through shortcuts</p>
             </div>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon">🌱</div>
             <div>
-              <h4>Student-Centered</h4>
-              <p>Every lesson adapts to the individual student's pace and needs</p>
+              <h4 data-en="Student-Centered" data-ar="التعليم المتمحور حول الطالب">Student-Centered</h4>
+              <p data-en="Every lesson adapts to the individual student's pace and needs"
+                 data-ar="كل درس يتكيّف مع وتيرة الطالب واحتياجاته الفردية">Every lesson adapts to the individual student's pace and needs</p>
             </div>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon">💡</div>
             <div>
-              <h4>Real-World Math</h4>
-              <p>Showing students where and why math matters in everyday life</p>
+              <h4 data-en="Real-World Math" data-ar="الرياضيات في الواقع">Real-World Math</h4>
+              <p data-en="Showing students where and why math matters in everyday life"
+                 data-ar="توضيح أين ولماذا تهم الرياضيات في الحياة اليومية">Showing students where and why math matters in everyday life</p>
             </div>
           </div>
         </div>
@@ -131,32 +170,38 @@
   <!-- ===== TEACHING LEVELS ===== -->
   <section class="section levels-section" id="levels">
     <div class="container">
-      <div class="section-label reveal">What I Teach</div>
-      <h2 class="section-title centered reveal delay-1">Teaching Levels</h2>
-      <p class="section-subtitle reveal delay-2">Comprehensive mathematics education across all scholastic stages</p>
+      <div class="section-label reveal" data-en="What I Teach" data-ar="ماذا أُدرّس">What I Teach</div>
+      <h2 class="section-title centered reveal delay-1" data-en="Teaching Levels" data-ar="المراحل الدراسية">Teaching Levels</h2>
+      <p class="section-subtitle reveal delay-2"
+         data-en="Comprehensive mathematics education across all scholastic stages"
+         data-ar="تعليم رياضيات شامل عبر جميع المراحل الدراسية">Comprehensive mathematics education across all scholastic stages</p>
       <div class="levels-grid">
         <div class="level-card reveal delay-1">
           <div class="level-icon">🔢</div>
-          <h3>Foundation</h3>
-          <p>Building a rock-solid numerical foundation with confidence, number sense, and basic operations that last a lifetime.</p>
+          <h3 data-en="Foundation" data-ar="الأساسي">Foundation</h3>
+          <p data-en="Building a rock-solid numerical foundation with confidence, number sense, and basic operations that last a lifetime."
+             data-ar="بناء قاعدة رقمية راسخة بثقة وإحساس بالأرقام وعمليات أساسية تدوم مدى الحياة.">Building a rock-solid numerical foundation with confidence, number sense, and basic operations that last a lifetime.</p>
           <div class="card-accent"></div>
         </div>
         <div class="level-card reveal delay-2">
           <div class="level-icon">📐</div>
-          <h3>Primary &amp; Prep</h3>
-          <p>Algebra, geometry, fractions, and equations — taught with clarity and patience to prepare students for secondary challenges.</p>
+          <h3 data-en="Primary &amp; Prep" data-ar="الابتدائي والإعدادي">Primary &amp; Prep</h3>
+          <p data-en="Algebra, geometry, fractions, and equations — taught with clarity and patience to prepare students for secondary challenges."
+             data-ar="جبر وهندسة وكسور ومعادلات — تُدرَّس بوضوح وصبر لتهيئة الطلاب للمرحلة الثانوية.">Algebra, geometry, fractions, and equations — taught with clarity and patience to prepare students for secondary challenges.</p>
           <div class="card-accent"></div>
         </div>
         <div class="level-card reveal delay-3">
           <div class="level-icon">🎓</div>
-          <h3>Secondary &amp; Thanaweya Amma</h3>
-          <p>Full curriculum coverage — calculus, trigonometry, statistics — with focused exam strategies and deep conceptual mastery.</p>
+          <h3 data-en="Secondary &amp; Thanaweya Amma" data-ar="الثانوي والثانوية العامة">Secondary &amp; Thanaweya Amma</h3>
+          <p data-en="Full curriculum coverage — calculus, trigonometry, statistics — with focused exam strategies and deep conceptual mastery."
+             data-ar="تغطية كاملة للمنهج — تفاضل وتكامل، مثلثات، إحصاء — مع استراتيجيات امتحانات وإتقان مفاهيمي عميق.">Full curriculum coverage — calculus, trigonometry, statistics — with focused exam strategies and deep conceptual mastery.</p>
           <div class="card-accent"></div>
         </div>
         <div class="level-card reveal delay-4">
           <div class="level-icon">🌍</div>
-          <h3>International &amp; Languages</h3>
-          <p>Mathematics taught in English for international curricula, language schools, and globally-oriented students.</p>
+          <h3 data-en="International &amp; Languages" data-ar="الدولي واللغات">International &amp; Languages</h3>
+          <p data-en="Mathematics taught in English for international curricula, language schools, and globally-oriented students."
+             data-ar="رياضيات باللغة الإنجليزية للمناهج الدولية ومدارس اللغات والطلاب الموجّهين عالمياً.">Mathematics taught in English for international curricula, language schools, and globally-oriented students.</p>
           <div class="card-accent"></div>
         </div>
       </div>
@@ -166,46 +211,55 @@
   <!-- ===== TEACHING STYLE ===== -->
   <section class="section style-section" id="style">
     <div class="container">
-      <div class="section-label reveal">My Approach</div>
+      <div class="section-label reveal" data-en="My Approach" data-ar="منهجي">My Approach</div>
       <div class="style-grid">
         <div class="style-text reveal delay-1">
-          <h2 class="section-title">A Teaching Style Built on<br /><em>Clarity &amp; Logic</em></h2>
-          <p>Every student deserves to understand the "why" behind every equation. My teaching philosophy is shaped by years of engineering problem-solving, brought into the classroom with warmth and accessibility.</p>
+          <h2 class="section-title">
+            <span data-en="A Teaching Style Built on" data-ar="أسلوب تدريس مبني على">A Teaching Style Built on</span><br />
+            <em data-en="Clarity &amp; Logic" data-ar="الوضوح والمنطق">Clarity &amp; Logic</em>
+          </h2>
+          <p data-en="Every student deserves to understand the why behind every equation. My teaching philosophy is shaped by years of engineering problem-solving, brought into the classroom with warmth and accessibility."
+             data-ar="كل طالب يستحق أن يفهم «لماذا» وراء كل معادلة. فلسفتي التعليمية تشكّلت عبر سنوات من حل المسائل الهندسية، أُحضرها إلى الفصل بدفء وسهولة.">Every student deserves to understand the "why" behind every equation. My teaching philosophy is shaped by years of engineering problem-solving, brought into the classroom with warmth and accessibility.</p>
         </div>
         <div class="style-pillars">
           <div class="pillar reveal delay-1">
             <div class="pillar-num">01</div>
             <div class="pillar-content">
-              <h4>Simplified Explanations</h4>
-              <p>Complex topics are broken down into digestible, logical steps that click — not confuse.</p>
+              <h4 data-en="Simplified Explanations" data-ar="شرح مبسّط">Simplified Explanations</h4>
+              <p data-en="Complex topics are broken down into digestible, logical steps that click — not confuse."
+                 data-ar="المواضيع المعقدة تُقسَّم إلى خطوات منطقية سهلة الاستيعاب — تُضيء لا تُربك.">Complex topics are broken down into digestible, logical steps that click — not confuse.</p>
             </div>
           </div>
           <div class="pillar reveal delay-2">
             <div class="pillar-num">02</div>
             <div class="pillar-content">
-              <h4>Step-by-Step Problem Solving</h4>
-              <p>Students learn a reliable method for approaching any problem, building unshakeable confidence.</p>
+              <h4 data-en="Step-by-Step Problem Solving" data-ar="حل المسائل خطوة بخطوة">Step-by-Step Problem Solving</h4>
+              <p data-en="Students learn a reliable method for approaching any problem, building unshakeable confidence."
+                 data-ar="يتعلم الطلاب منهجاً موثوقاً للتعامل مع أي مسألة، مما يبني ثقة راسخة.">Students learn a reliable method for approaching any problem, building unshakeable confidence.</p>
             </div>
           </div>
           <div class="pillar reveal delay-3">
             <div class="pillar-num">03</div>
             <div class="pillar-content">
-              <h4>Real-Life Applications</h4>
-              <p>Math is shown in context — students see why it matters, making concepts far more memorable.</p>
+              <h4 data-en="Real-Life Applications" data-ar="تطبيقات من الحياة الواقعية">Real-Life Applications</h4>
+              <p data-en="Math is shown in context — students see why it matters, making concepts far more memorable."
+                 data-ar="الرياضيات تُعرض في سياقها — يرى الطلاب لماذا تهم، مما يجعل المفاهيم أكثر رسوخاً.">Math is shown in context — students see why it matters, making concepts far more memorable.</p>
             </div>
           </div>
           <div class="pillar reveal delay-4">
             <div class="pillar-num">04</div>
             <div class="pillar-content">
-              <h4>Understanding Over Memorization</h4>
-              <p>The goal is never to memorize — it's to truly understand, so knowledge holds under exam pressure.</p>
+              <h4 data-en="Understanding Over Memorization" data-ar="الفهم فوق الحفظ">Understanding Over Memorization</h4>
+              <p data-en="The goal is never to memorize — it's to truly understand, so knowledge holds under exam pressure."
+                 data-ar="الهدف ليس الحفظ — بل الفهم الحقيقي، لتصمد المعرفة تحت ضغط الامتحانات.">The goal is never to memorize — it's to truly understand, so knowledge holds under exam pressure.</p>
             </div>
           </div>
           <div class="pillar reveal delay-5">
             <div class="pillar-num">05</div>
             <div class="pillar-content">
-              <h4>Supportive Environment</h4>
-              <p>A friendly, judgment-free space where students feel safe to ask questions and make mistakes.</p>
+              <h4 data-en="Supportive Environment" data-ar="بيئة داعمة">Supportive Environment</h4>
+              <p data-en="A friendly, judgment-free space where students feel safe to ask questions and make mistakes."
+                 data-ar="مساحة ودية خالية من الحكم يشعر فيها الطلاب بالأمان لطرح الأسئلة والتعلم من الأخطاء.">A friendly, judgment-free space where students feel safe to ask questions and make mistakes.</p>
             </div>
           </div>
         </div>
@@ -216,29 +270,35 @@
   <!-- ===== EXPERIENCE ===== -->
   <section class="section experience-section" id="experience">
     <div class="container">
-      <div class="section-label reveal">Track Record</div>
-      <h2 class="section-title centered reveal delay-1">Experience &amp; Impact</h2>
-      <p class="section-subtitle reveal delay-2">Building a reputation one student at a time</p>
+      <div class="section-label reveal" data-en="Track Record" data-ar="سجل الإنجازات">Track Record</div>
+      <h2 class="section-title centered reveal delay-1" data-en="Experience &amp; Impact" data-ar="الخبرة والأثر">Experience &amp; Impact</h2>
+      <p class="section-subtitle reveal delay-2"
+         data-en="Building a reputation one student at a time"
+         data-ar="بناء السمعة طالباً تلو الآخر">Building a reputation one student at a time</p>
       <div class="experience-grid">
         <div class="exp-card reveal delay-1">
           <div class="exp-icon">📚</div>
-          <h3>Multi-Level Teaching</h3>
-          <p>Extensive experience delivering mathematics across all educational stages — from early learners building number sense to senior students conquering Thanaweya Amma curricula.</p>
+          <h3 data-en="Multi-Level Teaching" data-ar="التدريس متعدد المراحل">Multi-Level Teaching</h3>
+          <p data-en="Extensive experience delivering mathematics across all educational stages — from early learners building number sense to senior students conquering Thanaweya Amma curricula."
+             data-ar="خبرة واسعة في تدريس الرياضيات عبر جميع المراحل — من صغار المتعلمين حتى طلاب الثانوية العامة.">Extensive experience delivering mathematics across all educational stages — from early learners building number sense to senior students conquering Thanaweya Amma curricula.</p>
         </div>
         <div class="exp-card reveal delay-2">
           <div class="exp-icon">📈</div>
-          <h3>Measurable Improvement</h3>
-          <p>Students consistently demonstrate significant grade improvements and, more importantly, a genuine shift in confidence and attitude toward mathematics.</p>
+          <h3 data-en="Measurable Improvement" data-ar="تحسّن ملموس">Measurable Improvement</h3>
+          <p data-en="Students consistently demonstrate significant grade improvements and, more importantly, a genuine shift in confidence and attitude toward mathematics."
+             data-ar="يُظهر الطلاب باستمرار تحسناً ملحوظاً في الدرجات، والأهم تحولاً حقيقياً في ثقتهم وموقفهم من الرياضيات.">Students consistently demonstrate significant grade improvements and, more importantly, a genuine shift in confidence and attitude toward mathematics.</p>
         </div>
         <div class="exp-card reveal delay-3">
           <div class="exp-icon">🤝</div>
-          <h3>Parent-Teacher Partnership</h3>
-          <p>Transparent communication with families ensures that progress is tracked, concerns are addressed early, and goals remain aligned throughout the learning journey.</p>
+          <h3 data-en="Parent-Teacher Partnership" data-ar="شراكة الوالدين والمعلم">Parent-Teacher Partnership</h3>
+          <p data-en="Transparent communication with families ensures that progress is tracked, concerns are addressed early, and goals remain aligned throughout the learning journey."
+             data-ar="التواصل الشفاف مع الأسر يضمن تتبع التقدم ومعالجة المخاوف مبكراً وبقاء الأهداف متوافقة طوال رحلة التعلم.">Transparent communication with families ensures that progress is tracked, concerns are addressed early, and goals remain aligned throughout the learning journey.</p>
         </div>
         <div class="exp-card reveal delay-4">
           <div class="exp-icon">💻</div>
-          <h3>Tech-Enhanced Teaching</h3>
-          <p>A programming background enables the use of digital tools, visual aids, and structured frameworks that make abstract math tangible and engaging for modern learners.</p>
+          <h3 data-en="Tech-Enhanced Teaching" data-ar="تدريس معزّز بالتقنية">Tech-Enhanced Teaching</h3>
+          <p data-en="A programming background enables the use of digital tools, visual aids, and structured frameworks that make abstract math tangible and engaging for modern learners."
+             data-ar="خلفية البرمجة تُتيح استخدام الأدوات الرقمية والوسائل البصرية التي تجعل الرياضيات المجردة ملموسة وجذابة.">A programming background enables the use of digital tools, visual aids, and structured frameworks that make abstract math tangible and engaging for modern learners.</p>
         </div>
       </div>
     </div>
@@ -247,9 +307,11 @@
   <!-- ===== GALLERY ===== -->
   <section class="section gallery-section" id="gallery">
     <div class="container">
-      <div class="section-label reveal">Success Stories</div>
-      <h2 class="section-title centered reveal delay-1">Students Gallery</h2>
-      <p class="section-subtitle reveal delay-2">Proud moments and achievements from the classroom</p>
+      <div class="section-label reveal" data-en="Success Stories" data-ar="قصص النجاح">Success Stories</div>
+      <h2 class="section-title centered reveal delay-1" data-en="Students Gallery" data-ar="معرض الطلاب">Students Gallery</h2>
+      <p class="section-subtitle reveal delay-2"
+         data-en="Proud moments and achievements from the classroom"
+         data-ar="لحظات مفخرة وإنجازات من داخل الفصل الدراسي">Proud moments and achievements from the classroom</p>
       <div class="gallery-grid" id="gallery-grid">
         <!-- Dynamically populated by script.js -->
       </div>
@@ -259,9 +321,11 @@
   <!-- ===== REVIEWS ===== -->
   <section class="section reviews-section" id="reviews">
     <div class="container">
-      <div class="section-label reveal">Social Proof</div>
-      <h2 class="section-title centered reveal delay-1">Student Reviews</h2>
-      <p class="section-subtitle reveal delay-2">Real feedback from students and parents who experienced the difference</p>
+      <div class="section-label reveal" data-en="Social Proof" data-ar="شهادات حقيقية">Social Proof</div>
+      <h2 class="section-title centered reveal delay-1" data-en="Student Reviews" data-ar="تقييمات الطلاب">Student Reviews</h2>
+      <p class="section-subtitle reveal delay-2"
+         data-en="Real feedback from students and parents who experienced the difference"
+         data-ar="تقييمات حقيقية من طلاب وأولياء أمور عاشوا الفرق">Real feedback from students and parents who experienced the difference</p>
       <div class="reviews-grid" id="reviews-grid">
         <!-- Dynamically populated by script.js -->
       </div>
@@ -271,14 +335,18 @@
   <!-- ===== CONTACT ===== -->
   <section class="section contact-section" id="contact">
     <div class="container">
-      <div class="section-label reveal">Get In Touch</div>
-      <h2 class="section-title centered reveal delay-1">Ready to Start Learning?</h2>
-      <p class="section-subtitle reveal delay-2">Reach out today to discuss your child's needs and schedule a first session</p>
+      <div class="section-label reveal" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</div>
+      <h2 class="section-title centered reveal delay-1"
+          data-en="Ready to Start Learning?"
+          data-ar="مستعد لتبدأ التعلم؟">Ready to Start Learning?</h2>
+      <p class="section-subtitle reveal delay-2"
+         data-en="Reach out today to discuss your child's needs and schedule a first session"
+         data-ar="تواصل اليوم لمناقشة احتياجات طفلك وحجز أول جلسة">Reach out today to discuss your child's needs and schedule a first session</p>
       <div class="contact-cards reveal delay-2">
         <a href="tel:+201069076948" class="contact-card">
           <div class="contact-icon">📞</div>
           <div class="contact-info">
-            <span class="contact-label">Call Directly</span>
+            <span class="contact-label" data-en="Call Directly" data-ar="اتصل مباشرة">Call Directly</span>
             <span class="contact-value">+20 106 907 6948</span>
           </div>
         </a>
@@ -286,14 +354,14 @@
           <div class="contact-icon">💬</div>
           <div class="contact-info">
             <span class="contact-label">WhatsApp</span>
-            <span class="contact-value">Chat Now</span>
+            <span class="contact-value" data-en="Chat Now" data-ar="تحدث الآن">Chat Now</span>
           </div>
         </a>
         <a href="https://www.facebook.com/bdallhqabyl.152632/" class="contact-card facebook" target="_blank" rel="noopener">
           <div class="contact-icon">📘</div>
           <div class="contact-info">
             <span class="contact-label">Facebook</span>
-            <span class="contact-value">Follow Page</span>
+            <span class="contact-value" data-en="Follow Page" data-ar="تابع الصفحة">Follow Page</span>
           </div>
         </a>
       </div>
@@ -306,7 +374,7 @@
       <div class="footer-inner">
         <a href="#hero" class="footer-logo">AQT</a>
         <p class="footer-name">Abdallah Qapeel Taha</p>
-        <p class="footer-copy">&copy; 2025 All rights reserved. Math Teacher | Ex-Programmer</p>
+        <p class="footer-copy">&copy; 2025 <span data-en="All rights reserved. Math Teacher | Ex-Programmer" data-ar="جميع الحقوق محفوظة. معلم رياضيات | مبرمج سابق">All rights reserved. Math Teacher | Ex-Programmer</span></p>
       </div>
     </div>
   </footer>
